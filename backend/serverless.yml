@@ -46,3 +46,13 @@ functions:
           cors: true
           authorizer:
             arn: us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
+
+  notes_list:
+    handler: notes/list.main
+    events:
+      - http:
+          path: notes
+          method: get
+          cors: true
+          authorizer:
+            arn: us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b

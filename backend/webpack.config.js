@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     'notes/create': './notes/create',
     'notes/get': './notes/get',
+    'notes/list': './notes/list',
   },
   target: 'node',
   // because 'aws-sdk' is not compatible with webpack,
