@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Link, withRouter } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
+
+import Routes from './Routes';
+import RouteNavItem from './components/RouteNavItem';
 import './App.css';
 
 class App extends Component {
+  _handleNavLink = e => {
+    e.preventDefault();
+    this.props.history.push(e.currentTarget.getAttribute('href'));
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="App container">
+        <Navbar fluid collapseOnSelect>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link to="/">Scratch</Link>
+            </Navbar.Brand>
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav pullRight>
+              <RouteNavItem onClick={this._handleNavLink} href="/signup">Signup</RouteNavItem>
+              <RouteNavItem onClick={this._handleNavLink} href="/login">Login</RouteNavItem>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        <Routes />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
