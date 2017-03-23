@@ -35,7 +35,7 @@ functions:
           method: post
           cors: true
           authorizer:
-            arn: us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
+            arn: arn:aws:cognito-identity:us-east-1:723184708744:identitypool/us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
 
   notes_get:
     handler: notes/get.main
@@ -45,7 +45,7 @@ functions:
           method: get
           cors: true
           authorizer:
-            arn: us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
+            arn: arn:aws:cognito-identity:us-east-1:723184708744:identitypool/us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
 
   notes_list:
     handler: notes/list.main
@@ -55,4 +55,24 @@ functions:
           method: get
           cors: true
           authorizer:
-            arn: us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
+            arn: arn:aws:cognito-identity:us-east-1:723184708744:identitypool/us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
+
+  notes_update:
+    handler: notes/update.main
+    events:
+      - http:
+          path: notes/{id}
+          method: put
+          cors: true
+          authorizer:
+            arn: arn:aws:cognito-identity:us-east-1:723184708744:identitypool/us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
+
+  notes_delete:
+    handler: notes/delete.main
+    events:
+      - http:
+          path: notes/{id}
+          method: delete
+          cors: true
+          authorizer:
+            arn: arn:aws:cognito-identity:us-east-1:723184708744:identitypool/us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b

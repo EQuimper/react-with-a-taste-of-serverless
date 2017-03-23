@@ -8,6 +8,8 @@ module.exports = {
     'notes/create': './notes/create',
     'notes/get': './notes/get',
     'notes/list': './notes/list',
+    'notes/update': './notes/update',
+    'notes/delete': './notes/delete',
   },
   target: 'node',
   // because 'aws-sdk' is not compatible with webpack,
@@ -26,4 +28,4 @@ module.exports = {
     path: path.join(__dirname, '.webpack'),
     filename: '[name].js'
   }
-}
+};
