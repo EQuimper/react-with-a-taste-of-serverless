@@ -9,8 +9,11 @@
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
     "babel-preset-react-app": "^2.2.0",
+    "babel-preset-stage-0": "^6.22.0",
     "eslint-config-equimper": "^1.5.1",
+    "glob": "^7.1.1",
     "serverless-webpack": "^1.0.0-rc.4",
     "webpack": "^2.3.1",
     "webpack-node-externals": "^1.5.4"

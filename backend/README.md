@@ -24,3 +24,11 @@ update.json`
 delete.json`
 
 ---
+
+## Endpoint
+
+POST - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes
+GET - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+GET - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes
+PUT - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+DELETE - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes/{id}

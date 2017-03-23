@@ -1,9 +1,3 @@
-export const success = body =>
-  buildResponse(200, body);
-
-export const failure = body =>
-  buildResponse(500, body);
-
 export const buildResponse = (statusCode, body) => ({
   statusCode,
   headers: {
@@ -12,3 +6,7 @@ export const buildResponse = (statusCode, body) => ({
   },
   body: JSON.stringify(body)
 });
+
+export const success = body => buildResponse(200, body);
+
+export const failure = body => buildResponse(500, body);

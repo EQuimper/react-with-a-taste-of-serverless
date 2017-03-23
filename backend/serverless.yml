@@ -1,9 +1,7 @@
-service: react-notes-app-api
-
+service: react-notes
 # use serverless-webpack plugin to transpile to ES6
 plugins:
   - serverless-webpack
-
 # enable auto-packing of external modules
 custom:
   webpackIncludeModules: true
@@ -13,7 +11,6 @@ provider:
   runtime: nodejs4.3
   stage: prod
   region: us-east-1
-
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -27,7 +24,7 @@ provider:
       Resource: "arn:aws:dynamodb:us-east-1:*:*"
 
 functions:
-  notes_create:
+  notesCreate:
     handler: notes/create.main
     events:
       - http:
@@ -35,9 +32,9 @@ functions:
           method: post
           cors: true
           authorizer:
-            arn: arn:aws:cognito-identity:us-east-1:723184708744:identitypool/us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
+            arn: arn:aws:cognito-idp:us-east-1:723184708744:userpool/us-east-1_1NtE2Kxrs
 
-  notes_get:
+  notesGet:
     handler: notes/get.main
     events:
       - http:
@@ -45,9 +42,9 @@ functions:
           method: get
           cors: true
           authorizer:
-            arn: arn:aws:cognito-identity:us-east-1:723184708744:identitypool/us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
+            arn: arn:aws:cognito-idp:us-east-1:723184708744:userpool/us-east-1_1NtE2Kxrs
 
-  notes_list:
+  notesList:
     handler: notes/list.main
     events:
       - http:
@@ -55,9 +52,9 @@ functions:
           method: get
           cors: true
           authorizer:
-            arn: arn:aws:cognito-identity:us-east-1:723184708744:identitypool/us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
+            arn: arn:aws:cognito-idp:us-east-1:723184708744:userpool/us-east-1_1NtE2Kxrs
 
-  notes_update:
+  notesUpdate:
     handler: notes/update.main
     events:
       - http:
@@ -65,9 +62,9 @@ functions:
           method: put
           cors: true
           authorizer:
-            arn: arn:aws:cognito-identity:us-east-1:723184708744:identitypool/us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
+            arn: arn:aws:cognito-idp:us-east-1:723184708744:userpool/us-east-1_1NtE2Kxrs
 
-  notes_delete:
+  notesDelete:
     handler: notes/delete.main
     events:
       - http:
@@ -75,4 +72,4 @@ functions:
           method: delete
           cors: true
           authorizer:
-            arn: arn:aws:cognito-identity:us-east-1:723184708744:identitypool/us-east-1:f9fb8dbe-f58f-4ddc-a2a3-a662779f6b9b
+            arn: arn:aws:cognito-idp:us-east-1:723184708744:userpool/us-east-1_1NtE2Kxrs
