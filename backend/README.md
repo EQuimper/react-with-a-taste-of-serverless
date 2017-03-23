@@ -27,8 +27,8 @@ delete.json`
 
 ## Endpoint
 
-POST - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes
-GET - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
-GET - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes
-PUT - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
-DELETE - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+1. POST - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes
+2. GET - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+3. GET - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes
+4. PUT - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+5. DELETE - https://l1od9is7mj.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
