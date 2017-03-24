@@ -10,7 +10,26 @@ import './App.css';
 
 class App extends Component {
   state = {
-    userToken: null
+    userToken: null,
+    isLoadingUserToken: false
+  }
+
+  async componentDidMount() {
+    this.setState({ isLoadingUserToken: true });
+
+    const currentUser = this._getCurrentUser();
+
+    if (!currentUser) {
+      return this.setState({ isLoadingUserToken: false });
+    }
+
+    try {
+      const userToken = await this._getUserToken(currentUser);
+      this._updateUserToken(userToken);
+      return this.setState({ isLoadingUserToken: false });
+    } catch (e) {
+      alert(e);
+    }
   }
 
   _updateUserToken = userToken =>
@@ -22,7 +41,13 @@ class App extends Component {
   }
 
   _handleLogout = () => {
-    this.updateUserToken(null);
+    const currentUser = this._getCurrentUser();
+
+    if (currentUser) {
+      currentUser.signOut();
+    }
+
+    return this._updateUserToken(null);
   }
 
   _getCurrentUser() {
@@ -38,7 +63,7 @@ class App extends Component {
         if (err) {
           return reject(err);
         }
-        return resolve(session.geIdToken().getJwtToken());
+        return resolve(session.getIdToken().getJwtToken());
       });
     });
   }
@@ -48,7 +73,9 @@ class App extends Component {
       userToken: this.state.userToken,
       updateUserToken: this._updateUserToken
     }
-    return (
+
+    return ! this.state.isLoadingUserToken
+     && (
       <div className="App container">
         <Navbar fluid collapseOnSelect>
           <Navbar.Header>
