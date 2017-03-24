@@ -36,7 +36,7 @@ export default class Login extends Component {
 
     try {
       const userToken = await this._login(this.state.username, this.state.password);
-      alert(userToken);
+      this.props.updateUserToken(userToken);
     } catch (e) {
       alert(e);
     }
